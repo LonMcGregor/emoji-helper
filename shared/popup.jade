@@ -4,24 +4,24 @@ mixin link(url)
 
 doctype html
 html
-  - var grouplogos = { recent : "./img/emoji/clock9.png" , people : "./img/emoji/smiley.png", nature : "./img/emoji/cherry_blossom.png", objects : "./img/emoji/bell.png", places : "./img/emoji/oncoming_automobile.png", symbols : "./img/emoji/symbols.png" }
+  - var grouplogos = { recent : "🕓" , people : "😄", nature : "🌷", objects : "🔨", places : "🚘", symbols : "🔀" }
   head
     title Emojis
     meta(charset="utf-8")
-    link(rel="stylesheet" href="./style/ionicons.min.css" type="text/css")
     link(rel="stylesheet" href="./style/style.css" type="text/css")
     script(src="./src/vendor.js")
   body
     .group-logos
       each group, n in emojis
         button.group-logo(data-group=n)
-          img(src=grouplogos[n], alt=n, title=n)
+          span(title=n) #{grouplogos[n]}
       input#search(placeholder="Search", data-group="search-container")
     .groups
       each group, n in emojis
         .group(id=n, data-emoji="true")
           each emoji in group
-            .emoji(title=emoji.name, data-name=emoji.name, data-unicode=emoji.unicode, style="background-position:#{-emoji.x / 2}px #{-emoji.y / 2}px;")
+            if emoji.unicode
+              .emoji(title=emoji.name, data-name=emoji.name, data-unicode=emoji.unicode) #{emoji.unicode}
       .group(id="search-container",data-emoji=true)
       .group(id="settings-container")
         h2 Settings
@@ -53,8 +53,7 @@ html
             label(for="hotkey-none") None
         hr
         span.setting-title History
-        button#clear-history-button.detail-button(title="Clear history")
-            i.ion-trash-b
+        button#clear-history-button.detail-button(title="Clear history") ♻️
       .group(id="about-container")
         h1
           | Emoji
@@ -111,11 +110,8 @@ html
       input#detail-input(readonly)
       input#unicode-input(readonly)
       if browser == "Chrome" || browser == "Firefox"
-        button#insert-button.detail-button(title="Insert into active input")
-            i.ion-share
-      button#about-button.detail-button(title="About", data-group="about-container")
-          i.ion-information-circled
+        button#insert-button.detail-button(title="Insert into active input") ✒️
+      button#about-button.detail-button(title="About", data-group="about-container") 📧
       if browser != "Safari"
-        button#settings-button.detail-button(title="Settings", data-group="settings-container")
-            i.ion-settings
+        button#settings-button.detail-button(title="Settings", data-group="settings-container") 🔧
     script(src="./src/popup.js")

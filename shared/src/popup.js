@@ -81,7 +81,7 @@
 
   // show an emoji in the bottom detail screen
   function showDetail(item) {
-    detailLogo.style.backgroundPosition = item.pos;
+    detailLogo.innerText = item.unicode;
     detailInput.value = ":" + item.name + ":";
     if (unicodeInput) {
       unicodeInput.value = item.unicode || "";
@@ -158,12 +158,16 @@
   }
 
   function appendItem(container, item) {
+    if(!item.unicode) return;
+    
     var cont = document.createElement("div");
     cont.classList.add("emoji");
     cont.title = item.name;
     cont.dataset.name = item.name;
     cont.dataset.unicode = item.unicode || "";
     cont.style.backgroundPosition = item.pos;
+    
+    cont.innerText = item.unicode;
 
     addEmojiClickListener(cont);
     container.appendChild(cont);

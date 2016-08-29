@@ -1,3 +1,5 @@
+## This fork forces the use of native emoji, rather than the bundled images. you need to have an operating system and browser that supports emoji, in addition to the required fonts installed.
+
 Thanks for contributing to this project! :heart:
 
 ## How can I contribute?
