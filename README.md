@@ -1,3 +1,5 @@
+## This fork forces the use of native emoji, rather than the bundled images. you need to have an operating system and browser that supports emoji, in addition to the required fonts installed.
+
 # Emoji Helper [![](https://travis-ci.org/johannhof/emoji-helper.svg?branch=master)](https://travis-ci.org/johannhof/emoji-helper) [![](https://img.shields.io/github/release/johannhof/emoji-helper.svg?style=flat)](https://github.com/johannhof/emoji-helper/releases)
 
 
